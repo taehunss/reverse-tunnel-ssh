@@ -1,9 +1,9 @@
 {
   "name": "@taehunss1215/reverse-tunnel-ssh",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Easy reverse ssh tunnel with TypeScript support",
   "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
     "prepare": "npm run build",
@@ -41,6 +41,7 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "index.d.ts"
   ]
 }

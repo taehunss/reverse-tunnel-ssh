@@ -14,7 +14,7 @@ npm i @taehunss1215/reverse-tunnel-ssh
 // Tunnel your local port 8000 to tunneltest.com:8000
 
 //tunnel is a ssh2 clientConnection object
-var tunnel = require('reverse-tunnel-ssh');
+var tunnel = require('@taehunss1215/reverse-tunnel-ssh');
 tunnel({
   host: 'tunneltest.com',
   username: 'root',
