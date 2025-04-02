@@ -1,31 +1,46 @@
 {
-  "name": "reverse-tunnel-ssh",
-  "version": "1.1.0",
-  "description": "Easy reverse ssh tunnel ",
-  "main": "index.js",
+  "name": "@taehunss1215/reverse-tunnel-ssh",
+  "version": "1.2.0",
+  "description": "Easy reverse ssh tunnel with TypeScript support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
+    "build": "tsc",
+    "prepare": "npm run build",
     "test": "npm test"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/agebrock/reverse-tunnel-ssh.git"
+    "url": "git+https://github.com/taehunss/reverse-tunnel-ssh.git"
   },
   "keywords": [
     "ssh",
     "tunnel",
     "reverse",
     "webhooks",
-    "develop"
+    "develop",
+    "typescript"
   ],
   "author": "christoph.hagenbrock@googlemail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/agebrock/reverse-tunnel-ssh/issues"
+    "url": "https://github.com/taehunss/reverse-tunnel-ssh/issues"
   },
-  "homepage": "https://github.com/agebrock/reverse-tunnel-ssh#readme",
+  "homepage": "https://github.com/taehunss/reverse-tunnel-ssh#readme",
   "dependencies": {
     "debug": "2.2.0",
     "lodash.defaults": "^4.2.0",
     "ssh2": "0.5.2"
-  }
+  },
+  "devDependencies": {
+    "@types/debug": "^4.1.9",
+    "@types/node": "^20.11.5",
+    "@types/ssh2": "^1.11.19",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
 }
