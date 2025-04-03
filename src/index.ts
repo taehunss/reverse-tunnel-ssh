@@ -1,7 +1,11 @@
 import debug from "debug";
 import { Socket } from "net";
 import { Client, ClientChannel } from "ssh2";
-import { createConfig, TunnelConfig } from "./lib/config";
+import createConfig, { TunnelConfig } from "./lib/config";
+
+// 타입 내보내기
+export type { TunnelConfig };
+export type ClientConnection = Client;
 
 const log = debug("reverse-tunnel-ssh");
 
@@ -12,7 +16,11 @@ interface ForwardInfo {
   dstPort: number;
 }
 
-type TunnelCallback = (error: Error[] | null, client: Client | null) => void;
+// TunnelCallback 타입 정의 및 export
+export type TunnelCallback = (
+  errors: Error[] | null,
+  clientConnection: Client | null
+) => void;
 
 // ssh2 라이브러리 타입 확장
 declare module "ssh2" {
@@ -29,13 +37,20 @@ declare module "ssh2" {
   }
 }
 
+/**
+ * Create a reverse SSH tunnel
+ *
+ * @param config Tunnel configuration
+ * @param callback Callback function called on connection
+ * @returns SSH client connection
+ */
 function createClient(
   rawConfig: Partial<TunnelConfig>,
   callback: TunnelCallback
 ): Client {
   const config = createConfig(rawConfig);
   const remoteHost = config.dstHost;
-  const remotePort = config.dstPort as number; // 타입 캐스팅 (config 검증에서 null이 아님이 확인됨)
+  const remotePort = config.dstPort as number;
   const srcHost = config.srcHost as string;
   const srcPort = config.srcPort as number;
 
@@ -82,4 +97,13 @@ function createClient(
   return conn;
 }
 
-export = createClient;
+// 기본 내보내기
+export default createClient;
+
+// CommonJS 호환성
+// @ts-ignore
+module.exports = createClient;
+// @ts-ignore
+module.exports.default = createClient;
+// @ts-ignore
+module.exports.__esModule = true;

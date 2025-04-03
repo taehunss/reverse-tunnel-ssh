@@ -57,7 +57,7 @@ conn.on('forward-in', function (port) {
 ### TypeScript
 ```typescript
 import tunnel from '@taehunss1215/reverse-tunnel-ssh';
-import { TunnelConfig } from '@taehunss1215/reverse-tunnel-ssh/dist/lib/config';
+import { TunnelConfig } from '@taehunss1215/reverse-tunnel-ssh';
 
 // Tunnel your local port 8000 to tunneltest.com:8000
 const config: TunnelConfig = {
