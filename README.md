@@ -1,5 +1,8 @@
 # reverse-tunnel-ssh
-Easy ssh reverse tunnel with TypeScript support
+Easy ssh reverse tunnel with TypeScript and ES6+ support
+
+
+![Tunnel-SSH Logo](https://i.imgur.com/2pdoADB.png)
 
 # Copyright Notice
 
@@ -9,7 +12,7 @@ This project aims to maintain the original functionality while adding TypeScript
 
 
 
-![Tunnel-SSH Logo](https://i.imgur.com/2pdoADB.png)
+
 
 
 # How to use
