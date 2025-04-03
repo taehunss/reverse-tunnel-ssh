@@ -12,7 +12,7 @@ This project aims to maintain the original functionality while adding TypeScript
 ![Tunnel-SSH Logo](https://i.imgur.com/2pdoADB.png)
 
 
-## How to use
+# How to use
 ```sh
 npm i @taehunss1215/reverse-tunnel-ssh
 ```
