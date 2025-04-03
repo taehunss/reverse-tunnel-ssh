@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@taehunss1215/reverse-tunnel-ssh@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@taehunss1215/reverse-tunnel-ssh/-/reverse-tunnel-ssh-1.2.1.tgz#ccc59969b00c7d464c7f9579ee461fa2d487e436"
-  integrity sha512-GIyr7i3IECCZWh3gI0KrhziUL2ZQiRYBqkcPEqjf1r3tSiLTxGaz7enInSjZY5XrdopVvSiU9Olgh4saCPl73g==
+"@taehunss1215/reverse-tunnel-ssh@1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@taehunss1215/reverse-tunnel-ssh/-/reverse-tunnel-ssh-1.2.4.tgz#00af500be3f387a8a5d61d93225b84faf82c69af"
+  integrity sha512-Qo/clRVtNgepK8LQt8wcqO2iqAbGDnRuMp8bkBRC14n2dKikHUatkgeFZNfm891NT+0ovFoiSPPlb+jCBtKqaA==
   dependencies:
     debug "2.2.0"
     lodash.defaults "^4.2.0"
