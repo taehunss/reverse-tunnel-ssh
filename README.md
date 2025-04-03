@@ -1,6 +1,14 @@
 # reverse-tunnel-ssh
 Easy ssh reverse tunnel with TypeScript support
 
+# Copyright Notice
+
+This package is a TypeScript conversion of the original [reverse-tunnel-ssh](https://www.npmjs.com/package/reverse-tunnel-ssh) library developed by Christoph Hagenbrock (@chbrock). All copyrights for the original library belong to the original developer, and this derivative work is distributed under the terms of the MIT license.
+
+This project aims to maintain the original functionality while adding TypeScript support and type safety.
+
+
+
 ![Tunnel-SSH Logo](https://i.imgur.com/2pdoADB.png)
 
 
