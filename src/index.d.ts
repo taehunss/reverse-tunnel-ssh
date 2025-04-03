@@ -1,6 +1,6 @@
 import { Client } from "ssh2";
 
-// TunnelConfig 인터페이스 직접 정의
+// Direct definition of TunnelConfig interface
 export interface TunnelConfig {
   /**
    * Optional tunnel name
@@ -74,7 +74,7 @@ export type TunnelCallback = (
  * @param callback Callback function called on connection
  * @returns SSH client connection
  */
-export default function tunnel(
+export function reverseTunnel(
   config: Partial<TunnelConfig>,
   callback: TunnelCallback
 ): Client;

@@ -1,5 +1,5 @@
 import { Client } from "ssh2";
-import { TunnelConfig } from "./lib/config";
+import type { TunnelConfig } from "./lib/config";
 export type { TunnelConfig };
 export type ClientConnection = Client;
 interface ForwardInfo {
@@ -22,5 +22,5 @@ declare module "ssh2" {
  * @param callback Callback function called on connection
  * @returns SSH client connection
  */
-declare function createClient(rawConfig: Partial<TunnelConfig>, callback: TunnelCallback): Client;
-export default createClient;
+export declare function reverseTunnel(rawConfig: Partial<TunnelConfig>, callback: TunnelCallback): Client;
+export default reverseTunnel;

@@ -24,9 +24,12 @@ npm i @taehunss1215/reverse-tunnel-ssh
 ```js
 // Tunnel your local port 8000 to tunneltest.com:8000
 
-//tunnel is a ssh2 clientConnection object
-var tunnel = require('@taehunss1215/reverse-tunnel-ssh');
-tunnel({
+// tunnel is a ssh2 clientConnection object
+var reverseTunnel = require('@taehunss1215/reverse-tunnel-ssh').reverseTunnel;
+// Or you can use the default export for backward compatibility:
+// var reverseTunnel = require('@taehunss1215/reverse-tunnel-ssh');
+
+reverseTunnel({
   host: 'tunneltest.com',
   username: 'root',
   dstHost: '0.0.0.0', // bind to all IPv4 interfaces
@@ -39,7 +42,7 @@ tunnel({
 
 // Tunnel your local port 8000 to a free port on tunneltest.com
 
-var conn = tunnel({
+var conn = reverseTunnel({
   host: 'tunneltest.com',
   username: 'somebody',
   dstHost: '0.0.0.0', // bind to all IPv4 interfaces
@@ -56,8 +59,9 @@ conn.on('forward-in', function (port) {
 
 ### TypeScript
 ```typescript
-import tunnel from '@taehunss1215/reverse-tunnel-ssh';
-import { TunnelConfig } from '@taehunss1215/reverse-tunnel-ssh';
+import { reverseTunnel, TunnelConfig } from '@taehunss1215/reverse-tunnel-ssh';
+// Or you can use the default export for backward compatibility:
+// import reverseTunnel from '@taehunss1215/reverse-tunnel-ssh';
 
 // Tunnel your local port 8000 to tunneltest.com:8000
 const config: TunnelConfig = {
@@ -70,7 +74,7 @@ const config: TunnelConfig = {
 };
 
 // Create tunnel
-tunnel(config, (error, clientConnection) => {
+reverseTunnel(config, (error, clientConnection) => {
   if (error) {
     console.error('Error creating tunnel:', error);
     return;
@@ -79,7 +83,7 @@ tunnel(config, (error, clientConnection) => {
 });
 
 // Tunnel your local port 8000 to a free port on tunneltest.com
-const conn = tunnel({
+const conn = reverseTunnel({
   host: 'tunneltest.com',
   username: 'somebody',
   dstHost: '0.0.0.0', // bind to all IPv4 interfaces

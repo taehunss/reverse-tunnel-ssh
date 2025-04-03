@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.reverseTunnel = reverseTunnel;
 const debug_1 = __importDefault(require("debug"));
 const net_1 = require("net");
 const ssh2_1 = require("ssh2");
-const config_1 = __importDefault(require("./lib/config"));
+const config_1 = require("./lib/config");
 const log = (0, debug_1.default)("reverse-tunnel-ssh");
 /**
  * Create a reverse SSH tunnel
@@ -15,8 +16,8 @@ const log = (0, debug_1.default)("reverse-tunnel-ssh");
  * @param callback Callback function called on connection
  * @returns SSH client connection
  */
-function createClient(rawConfig, callback) {
-    const config = (0, config_1.default)(rawConfig);
+function reverseTunnel(rawConfig, callback) {
+    const config = (0, config_1.createConfig)(rawConfig);
     const remoteHost = config.dstHost;
     const remotePort = config.dstPort;
     const srcHost = config.srcHost;
@@ -61,12 +62,14 @@ function createClient(rawConfig, callback) {
     conn.connect(config);
     return conn;
 }
-// 기본 내보내기
-exports.default = createClient;
-// CommonJS 호환성
+// Default export for backward compatibility
+exports.default = reverseTunnel;
+// CommonJS compatibility
 // @ts-ignore
-module.exports = createClient;
+module.exports = reverseTunnel;
 // @ts-ignore
-module.exports.default = createClient;
+module.exports.default = reverseTunnel;
 // @ts-ignore
 module.exports.__esModule = true;
+// @ts-ignore
+module.exports.reverseTunnel = reverseTunnel;

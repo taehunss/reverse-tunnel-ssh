@@ -1,5 +1,5 @@
 import http from "http";
-import tunnel from "../index";
+import { reverseTunnel } from "../index";
 import { TunnelConfig } from "../lib/config";
 
 // This is a very handy way to test your next webhook !
@@ -16,7 +16,7 @@ const config: TunnelConfig = {
   //srcPort: dstPort // default is the same as dstPort
 };
 
-tunnel(config, (error, clientConnection) => {
+reverseTunnel(config, (error, clientConnection) => {
   if (error) {
     console.error("Error creating tunnel:", error);
     return;

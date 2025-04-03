@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const http_1 = __importDefault(require("http"));
-const index_1 = __importDefault(require("../index"));
+const index_1 = require("../index");
 // This is a very handy way to test your next webhook !
 // Please set up your /etc/hosts or change the hostname before
 // running the example.
@@ -16,7 +16,7 @@ const config = {
     //srcHost: '127.0.0.1', // default
     //srcPort: dstPort // default is the same as dstPort
 };
-(0, index_1.default)(config, (error, clientConnection) => {
+(0, index_1.reverseTunnel)(config, (error, clientConnection) => {
     if (error) {
         console.error("Error creating tunnel:", error);
         return;

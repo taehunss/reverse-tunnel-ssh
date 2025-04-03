@@ -1,9 +1,10 @@
 import debug from "debug";
 import { Socket } from "net";
 import { Client, ClientChannel } from "ssh2";
-import createConfig, { TunnelConfig } from "./lib/config";
+import type { TunnelConfig } from "./lib/config";
+import { createConfig } from "./lib/config";
 
-// 타입 내보내기
+// Export types
 export type { TunnelConfig };
 export type ClientConnection = Client;
 
@@ -16,13 +17,13 @@ interface ForwardInfo {
   dstPort: number;
 }
 
-// TunnelCallback 타입 정의 및 export
+// Define and export TunnelCallback type
 export type TunnelCallback = (
   errors: Error[] | null,
   clientConnection: Client | null
 ) => void;
 
-// ssh2 라이브러리 타입 확장
+// Extend ssh2 library types
 declare module "ssh2" {
   interface Client {
     on(
@@ -44,7 +45,7 @@ declare module "ssh2" {
  * @param callback Callback function called on connection
  * @returns SSH client connection
  */
-function createClient(
+export function reverseTunnel(
   rawConfig: Partial<TunnelConfig>,
   callback: TunnelCallback
 ): Client {
@@ -97,13 +98,15 @@ function createClient(
   return conn;
 }
 
-// 기본 내보내기
-export default createClient;
+// Default export for backward compatibility
+export default reverseTunnel;
 
-// CommonJS 호환성
+// CommonJS compatibility
 // @ts-ignore
-module.exports = createClient;
+module.exports = reverseTunnel;
 // @ts-ignore
-module.exports.default = createClient;
+module.exports.default = reverseTunnel;
 // @ts-ignore
 module.exports.__esModule = true;
+// @ts-ignore
+module.exports.reverseTunnel = reverseTunnel;
