@@ -1,6 +1,6 @@
 {
   "name": "@taehunss1215/reverse-tunnel-ssh",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Easy reverse ssh tunnel with TypeScript support",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
